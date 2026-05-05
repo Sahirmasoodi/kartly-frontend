@@ -21,6 +21,8 @@ import EditCoupon from "./pages/coupons/EditCoupon";
 import CustomerDetails from "./pages/customers/CustomerDetails";
 import Offers from "./pages/offers/Offers";
 import AddEditOffer from "./pages/offers/AddEditOffer";
+import ProductsPublic from "./pages/public/products/Products";
+import ProductDetail from "./pages/public/products/ProductDetail";
 
 const App = () => {
   return (
@@ -185,7 +187,9 @@ const App = () => {
             }
           />
 
-          {/* Catch All */}
+          <Route path="/home" element={<ProductsPublic />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>

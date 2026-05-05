@@ -6,13 +6,30 @@ export const getProducts = createAsyncThunk(
   "product/getProducts",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`${BACKEND_URL}/products/get-products`, {
+      const res = await axios.get(`${BACKEND_URL}/products`, {
         withCredentials: true,
       });
       return res.data;
     } catch (err) {
       return rejectWithValue(
         err.response?.data?.message || "Failed to fetch products"
+      );
+    }
+  }
+);
+
+export const getProductById = createAsyncThunk(
+  "product/getProductById",
+  async (id, { rejectWithValue }) => {
+    try {
+      const res = await axios.get(`${BACKEND_URL}/products/${id}`, {
+        withCredentials: true,
+      });
+
+      return res.data.product;
+    } catch (err) {
+      return rejectWithValue(
+        err.response?.data?.message || "Failed to fetch product"
       );
     }
   }

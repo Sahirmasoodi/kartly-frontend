@@ -3,10 +3,12 @@ import {
   getProducts,
   addProduct,
   deleteProduct,
+  getProductById,
 } from "./productThunks";
 
 const initialState = {
   products: [],
+  selectedProduct: null, // 👈 ADD THIS
   total: 0,
   loading: false,
   error: null,
@@ -15,11 +17,15 @@ const initialState = {
 const productSlice = createSlice({
   name: "product",
   initialState,
-  reducers: {},
+  reducers: {
+    clearSelectedProduct: (state) => {
+      state.selectedProduct = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
 
-      // GET
+      // GET ALL PRODUCTS
       .addCase(getProducts.pending, (state) => {
         state.loading = true;
       })
@@ -29,6 +35,20 @@ const productSlice = createSlice({
         state.total = action.payload.total;
       })
       .addCase(getProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      // GET PRODUCT BY ID
+      .addCase(getProductById.pending, (state) => {
+        state.loading = true;
+        state.selectedProduct = null;
+      })
+      .addCase(getProductById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedProduct = action.payload;
+      })
+      .addCase(getProductById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
@@ -47,4 +67,5 @@ const productSlice = createSlice({
   },
 });
 
+export const { clearSelectedProduct } = productSlice.actions;
 export default productSlice.reducer;
