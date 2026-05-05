@@ -42,9 +42,9 @@ const CategoriesMain = () => {
   return (
     <Layout>
       <div className=" mx-auto  space-y-8">
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 page-heading">
           <div>
-            <h2 className="text-3xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <h2 className=" text-gradient">
               Categories
             </h2>
             <p className="text-gray-500 mt-1">Manage your product categories</p>
@@ -60,7 +60,7 @@ const CategoriesMain = () => {
             />
 
             <button
-              className="px-5 py-2 bg-linear-to-r from-pink-500 to-purple-600 text-white rounded-xl shadow hover:opacity-90 transition"
+              className="px-5 py-2 bg-linear-to-r from-pink-600 to-violet-600 text-white rounded-xl shadow hover:opacity-90 transition"
               onClick={() => navigate("/add/category")}
             >
               + Add Category
@@ -68,7 +68,7 @@ const CategoriesMain = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           {loading ? (
             <div className="p-8 text-center text-gray-500 animate-pulse">
               <Spinner color="black"/>
@@ -135,14 +135,14 @@ const CategoriesMain = () => {
                                 state: { category: cat },
                               })
                             }
-                            className="p-2 bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition"
+                            className="p-2 bg-purple-100 text-purple-700 rounded-xl hover:bg-purple-200 transition"
                           >
                             <FaEdit />
                           </button>
 
                           <button
                             onClick={() => handleDelete(cat._id)}
-                            className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition"
+                            className="p-2 bg-red-100 text-red-600 rounded-xl hover:bg-red-200 transition"
                           >
                             <FaTrash />
                           </button>

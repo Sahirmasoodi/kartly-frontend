@@ -21,12 +21,12 @@ const Analytics = () => {
   return (
     <Layout>
       <div className="p-4">
-        <h2 className="text-2xl font-bold text-purple-800 mb-6">
+        <h2 className="text-2xl font-bold text-purple-800 mb-4">
           Analytics Dashboard
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4">
           
-          <div className="bg-white shadow rounded-lg p-5 border-t-4 border-purple-600">
+          <div className="bg-white shadow rounded-xl p-5 border-t-4 border-purple-600">
             <div className="flex items-center gap-3 text-purple-700">
               <FaBoxOpen className="text-2xl" />
               <h3 className="font-semibold">Total Products</h3>
@@ -36,7 +36,7 @@ const Analytics = () => {
             </p>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-5 border-t-4 border-purple-600">
+          <div className="bg-white shadow rounded-xl p-5 border-t-4 border-purple-600">
             <div className="flex items-center gap-3 text-purple-700">
               <FaShoppingBag className="text-2xl" />
               <h3 className="font-semibold">Total Sales</h3>
@@ -46,7 +46,7 @@ const Analytics = () => {
             </p>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-5 border-t-4 border-purple-600">
+          <div className="bg-white shadow rounded-xl p-5 border-t-4 border-purple-600">
             <div className="flex items-center gap-3 text-purple-700">
               <FaDollarSign className="text-2xl" />
               <h3 className="font-semibold">Total Revenue</h3>
@@ -56,7 +56,7 @@ const Analytics = () => {
             </p>
           </div>
 
-          <div className="bg-white shadow rounded-lg p-5 border-t-4 border-purple-600">
+          <div className="bg-white shadow rounded-xl p-5 border-t-4 border-purple-600">
             <div className="flex items-center gap-3 text-purple-700">
               <FaChartLine className="text-2xl" />
               <h3 className="font-semibold">Today Sales</h3>
@@ -66,7 +66,7 @@ const Analytics = () => {
             </p>
           </div>
         </div>
-        <div className="bg-white shadow rounded-lg p-5">
+        <div className="bg-white shadow rounded-xl p-5">
           <h3 className="text-lg font-semibold text-purple-700 mb-4">
             Recent Sales
           </h3>
@@ -75,7 +75,7 @@ const Analytics = () => {
             {recentSales.map((sale) => (
               <div
                 key={sale.id}
-                className="bg-white border border-purple-200 p-4 rounded-lg flex justify-between items-center"
+                className="bg-white border border-purple-200 p-4 rounded-xl flex justify-between items-center"
               >
                 <div>
                   <h4 className="font-semibold text-purple-800">

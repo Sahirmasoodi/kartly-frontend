@@ -54,12 +54,15 @@ const AddEditOffer = () => {
 
   return (
     <Layout>
-      <div className="mx-auto bg-white p-6 rounded-2xl shadow">
-        <h2 className="text-2xl font-bold mb-6">
+      <div className="mx-auto ">
+      <div className="page-heading mb-8">
+        <h2 className="text-gradient w-60">
           {existing ? "Edit Offer" : "Create Offer"}
         </h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      </div>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 p-4 border border-gray-200 rounded-xl shadow-sm">
           <Controller
             name="image"
             control={control}
@@ -90,7 +93,7 @@ const AddEditOffer = () => {
                   message: "Enter a valid URL",
                 },
               })}
-              className="w-full border p-3 rounded-lg"
+              className="w-full border p-3 rounded-xl"
             />
             {errors.link && (
               <p className="text-red-500 text-sm mt-1">
@@ -112,7 +115,7 @@ const AddEditOffer = () => {
                   message: "Position must be 0 or greater",
                 },
               })}
-              className="w-full border p-3 rounded-lg"
+              className="w-full border p-3 rounded-xl"
             />
             {errors.position && (
               <p className="text-red-500 text-sm mt-1">
@@ -123,7 +126,7 @@ const AddEditOffer = () => {
 
           <button
             type="submit"
-            className="w-full bg-linear-to-r from-pink-500 to-purple-600 text-white py-3 rounded-lg hover:opacity-90 transition"
+            className="w-full bg-linear-to-r from-pink-600 to-violet-600 text-white py-3 rounded-xl hover:opacity-90 transition"
           >
             {existing ? "Update Offer" : "Create Offer"}
           </button>

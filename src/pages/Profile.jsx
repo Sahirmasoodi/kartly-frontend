@@ -53,8 +53,8 @@ const Profile = () => {
   return (
     <Layout>
       <div className="mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="bg-linear-to-r from-pink-500 to-purple-600 p-8 text-white">
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div className="bg-linear-to-r from-pink-600 to-violet-600 p-8 text-white">
             <h2 className="text-3xl font-bold">My Profile</h2>
             <p className="text-purple-100 text-sm mt-1">
               Manage your account information
@@ -72,7 +72,7 @@ const Profile = () => {
                   {user.isAdmin && (
                     <button
                       onClick={() => setIsEditing(true)}
-                      className="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg hover:bg-purple-200 transition"
+                      className="bg-purple-100 text-purple-700 px-4 py-2 rounded-xl hover:bg-purple-200 transition"
                     >
                       Add Terms & Conditions
                     </button>
@@ -80,7 +80,7 @@ const Profile = () => {
 
                   <button
                     onClick={() => setIsEditing(true)}
-                    className="bg-linear-to-r from-pink-500 to-purple-600 text-white px-5 py-2 rounded-lg hover:opacity-90 transition"
+                    className="bg-linear-to-r from-pink-500 to-violet-600 text-white px-5 py-2 rounded-xl hover:opacity-90 transition"
                   >
                     Edit Profile
                   </button>
@@ -90,14 +90,14 @@ const Profile = () => {
                   <button
                     onClick={handleSave}
                     disabled={updating}
-                    className="bg-linear-to-r from-pink-500 to-purple-600 text-white px-5 py-2 rounded-lg hover:opacity-90 transition"
+                    className="bg-linear-to-r from-pink-600 to-violet-600 text-white px-5 py-2 rounded-xl hover:opacity-90 transition"
                   >
                     {updating ? "Saving..." : "Save Changes"}
                   </button>
 
                   <button
                     onClick={() => setIsEditing(false)}
-                    className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-lg transition"
+                    className="bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-xl transition"
                   >
                     Cancel
                   </button>
@@ -115,7 +115,7 @@ const Profile = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full border rounded-lg p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
+                  className="w-full border rounded-xl p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
                 />
               </div>
 
@@ -128,7 +128,7 @@ const Profile = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full border rounded-lg p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
+                  className="w-full border rounded-xl p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
                 />
               </div>
 
@@ -141,7 +141,7 @@ const Profile = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, phone: e.target.value })
                   }
-                  className="w-full border rounded-lg p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
+                  className="w-full border rounded-xl p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
                 />
               </div>
 
@@ -158,7 +158,7 @@ const Profile = () => {
                         deliveryfee: Number(e.target.value),
                       })
                     }
-                    className="w-full border rounded-lg p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
+                    className="w-full border rounded-xl p-3 mt-1 focus:ring-2 focus:ring-purple-500 disabled:bg-gray-100"
                   />
                 </div>
               )}
@@ -169,7 +169,7 @@ const Profile = () => {
                   type="text"
                   disabled
                   value={user.isAdmin ? "Administrator" : "Customer"}
-                  className="w-full border rounded-lg p-3 mt-1 bg-gray-100"
+                  className="w-full border rounded-xl p-3 mt-1 bg-gray-100"
                 />
               </div>
             </div>
@@ -195,7 +195,7 @@ const Profile = () => {
                             currentPassword: e.target.value,
                           })
                         }
-                        className="w-full border rounded-lg p-3 mt-1 focus:ring-2 focus:ring-purple-500"
+                        className="w-full border rounded-xl p-3 mt-1 focus:ring-2 focus:ring-purple-500"
                       />
                     </div>
 
@@ -212,7 +212,7 @@ const Profile = () => {
                             newPassword: e.target.value,
                           })
                         }
-                        className="w-full border rounded-lg p-3 mt-1 focus:ring-2 focus:ring-purple-500"
+                        className="w-full border rounded-xl p-3 mt-1 focus:ring-2 focus:ring-purple-500"
                       />
                     </div>
                   </div>

@@ -284,7 +284,7 @@ const EditProduct = () => {
             )}
           />
 
-          <button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded">
+          <button className="bg-gradient-to-r from-pink-600 to-violet-600 text-white px-4 py-2 rounded">
             Update Product
           </button>
         </form>

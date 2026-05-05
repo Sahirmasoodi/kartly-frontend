@@ -7,9 +7,9 @@ const ErrorPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white p-6">
-      <div className="bg-white shadow-xl rounded-xl p-10 text-center max-w-md w-full border-t-8 border-purple-600">
+      <div className="bg-white shadow-sm rounded-xl p-10 text-center max-w-md w-full border-t-8 border-purple-600">
         
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-4">
           <div className="bg-purple-100 text-purple-700 p-6 rounded-full text-5xl">
             <FaExclamationTriangle />
           </div>
@@ -23,7 +23,7 @@ const ErrorPage = () => {
           Page Not Found
         </h2>
 
-        <p className="text-purple-600 mb-6">
+        <p className="text-purple-600 mb-4">
           The page you’re looking for doesn’t exist or has been moved.
         </p>
 

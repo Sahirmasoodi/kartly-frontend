@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
       {/* Sidebar */}
       <div
         className={`
-          fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-lg
+          fixed inset-y-0 left-0 z-40 w-64 bg-white shadow-sm
           transform transition-transform duration-300
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
           md:translate-x-0
@@ -38,8 +38,7 @@ const Layout = ({ children }) => {
           </button>
         </div>
 
-        {/* Scrollable Content */}
-        <main className="flex-1 p-8 overflow-y-auto">
+        <main className="flex-1 p-4 overflow-y-auto">
           {children}
         </main>
 

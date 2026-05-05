@@ -25,20 +25,20 @@ const Offers = () => {
   return (
     <Layout>
       <div className="mx-auto space-y-8">
-        <div className="flex justify-between items-center">
-          <h2 className="text-3xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+        <div className="flex justify-between items-center page-heading">
+          <h2 className=" text-gradient w-40">
             Offers
           </h2>
 
           <button
             onClick={() => navigate("/add/offer")}
-            className="px-5 py-2 bg-linear-to-r from-pink-500 to-purple-600 text-white rounded-xl shadow"
+            className="px-5 py-2 bg-linear-to-r from-pink-600 to-violet-600 text-white rounded-xl shadow"
           >
             + Add Offer
           </button>
         </div>
 
-        <div className="bg-white rounded-2xl shadow border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-xl shadow border border-gray-100 overflow-hidden">
           {loading ? (
             <div className="p-8 text-center">
               <Spinner color="black" />
@@ -65,7 +65,7 @@ const Offers = () => {
                       <img
                         src={offer.image}
                         alt="Offer"
-                        className="h-16 w-28 object-cover rounded-lg border"
+                        className="h-16 w-28 object-cover rounded-xl border"
                       />
                     </td>
 

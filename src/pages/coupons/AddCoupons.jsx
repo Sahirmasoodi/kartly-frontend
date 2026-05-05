@@ -20,10 +20,13 @@ const AddCoupons = () => {
 
   const onSubmit = async (data) => {
     try {
-      data.value = Number(data.value);
-      data.minCartValue = Number(data.minCartValue);
-      data.maxDiscount = Number(data.maxDiscount);
-      data.usageLimit = Number(data.usageLimit);
+      data.value = Number(data.value || 0);
+      data.minCartValue = Number(data.minCartValue || 0);
+      data.maxDiscount = Number(data.maxDiscount || 0);
+      data.usageLimit = Number(data.usageLimit || 0);
+      data.useLimitperUser = Number(data.useLimitperUser || 1);
+      data.validFrom = new Date(data.validFrom);
+      data.validTo = new Date(data.validTo);
 
       if (data.eligibleCategories) {
         data.eligibleCategories = data.eligibleCategories
@@ -35,20 +38,23 @@ const AddCoupons = () => {
       reset();
       navigate("/coupons");
     } catch (err) {
-      popMessage("something went wrong");
+      popMessage("Something went wrong");
     }
   };
 
   return (
     <Layout>
-      <div className="mx-auto bg-white rounded">
-        <h2 className="text-2xl font-bold mb-6 text-purple-700">
+      <div className="mx-auto  rounded">
+      <div className="page-heading mb-8">
+        <h2 className="text-gradient w-60">
           Create Coupon
         </h2>
 
+      </div>
+
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-5 border border-gray-300 p-6 rounded-lg"
+          className="space-y-5 border border-gray-300 p-6 rounded-xl"
         >
           <input
             {...register("code", { required: true })}
@@ -125,12 +131,24 @@ const AddCoupons = () => {
             className="w-full border p-2 rounded"
           />
 
+          <input
+            type="number"
+            {...register("useLimitperUser")}
+            placeholder="Usage Limit Per User"
+            className="w-full border p-2 rounded"
+          />
+
+          <label className="flex items-center gap-2">
+            <input type="checkbox" {...register("isActive")} defaultChecked />
+            Is Active
+          </label>
+
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("firstOrderOnly")} />
             First Order Only
           </label>
 
-          <button className="px-4 bg-linear-to-r from-pink-500 to-purple-600 text-white py-2 rounded">
+          <button className="px-4 bg-linear-to-r from-pink-600 to-violet-600 text-white py-2 rounded">
             Save Coupon
           </button>
         </form>

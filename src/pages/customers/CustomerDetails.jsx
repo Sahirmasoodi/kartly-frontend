@@ -60,7 +60,7 @@ const CustomerDetails = () => {
             {user?.addresses?.map((address) => (
               <div
                 key={address?._id}
-                className="border rounded-lg p-4 bg-gray-50"
+                className="border rounded-xl p-4 bg-gray-50"
               >
                 <p className="font-semibold">{address?.label}</p>
                 <p>{address?.fullName}</p>
@@ -89,7 +89,7 @@ const CustomerDetails = () => {
             {user.measurementProfiles?.map((profile) => (
               <div
                 key={profile?._id}
-                className="border rounded-lg p-4 bg-gray-50"
+                className="border rounded-xl p-4 bg-gray-50"
               >
                 <h4 className="font-semibold text-purple-700">
                   {profile?.profileName}
@@ -107,8 +107,8 @@ const CustomerDetails = () => {
             ))}
           </div>
         </div>
-        <div className="bg-white p-6 rounded-2xl shadow border border-gray-100">
-          <h3 className="text-lg font-semibold text-purple-800 mb-6">
+        <div className="bg-white p-6 rounded-xl shadow border border-gray-100">
+          <h3 className="text-lg font-semibold text-purple-800 mb-4">
             Wishlist
           </h3>
 
@@ -121,7 +121,7 @@ const CustomerDetails = () => {
               {user.wishlist.map((product) => (
                 <div
                   key={product._id}
-                  className="border rounded-xl overflow-hidden hover:shadow-lg transition"
+                  className="border rounded-xl overflow-hidden hover:shadow-sm transition"
                 >
 
                   {product.images?.[0] && (
@@ -173,7 +173,7 @@ const CustomerDetails = () => {
         </div>
         <button
           onClick={() => navigate("/customers")}
-          className="px-4 py-2 bg-linear-to-r from-pink-500 to-purple-500 text-white rounded"
+          className="px-4 py-2 bg-linear-to-r from-pink-600 to-violet-600 text-white rounded"
         >
           Back to Customers
         </button>

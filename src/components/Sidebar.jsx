@@ -45,14 +45,13 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="fixed top-0 left-0 h-screen w-64 bg-white border-r  shadow-md flex flex-col justify-between z-50">
+    <aside className="fixed top-0 left-0 h-screen w-64 bg-white border-r  shadow-sm flex flex-col justify-between z-50">
       {/* Top Section */}
       <div className="flex flex-col h-full overflow-y-auto">
         {/* Logo */}
-        <div className="p-5 border-b  sticky top-0 bg-white z-10">
-          <h2 className="text-2xl font-extrabold text-center ">
-            Flexi
-          </h2>
+        <div className=" border-b  py-5 sticky top-0 bg-white z-10">
+        <img src="./mainlogo.jpeg" className="w-full "/>
+          
         </div>
 
         {/* Menu */}

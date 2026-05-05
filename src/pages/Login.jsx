@@ -31,12 +31,12 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen px-4 bg-white">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md ">
+      <div className="bg-white p-8 rounded-xl shadow-sm w-full max-w-md ">
         <h2 className="text-3xl font-extrabold text-center mb-2 text-gray-800">
           Welcome Back
         </h2>
 
-        <p className="text-center text-gray-500 mb-6">
+        <p className="text-center text-gray-500 mb-4">
           Please login to continue
         </p>
 
@@ -48,7 +48,7 @@ const Login = () => {
 
             <div className="relative">
               <input
-                className="w-full border border-purple-300 p-2 rounded-lg focus:outline-none  transition"
+                className="w-full border border-purple-300 p-2 rounded-xl focus:outline-none  transition"
                 type="email"
                 placeholder="Enter email"
                 {...register("email", {
@@ -74,7 +74,7 @@ const Login = () => {
 
             <div className="relative">
               <input
-                className="w-full border border-purple-300 p-2 pr-10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
+                className="w-full border border-purple-300 p-2 pr-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition"
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter password"
                 {...register("password", {
@@ -103,7 +103,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-linear-to-r from-pink-500 to-purple-500 hover:bg-purple-200 text-white py-2.5 rounded-lg font-semibold transition duration-200 shadow-md hover:shadow-lg"
+            className="w-full bg-linear-to-r from-pink-600 to-violet-600 hover:bg-purple-200 text-white py-2.5 rounded-xl font-semibold transition duration-200 shadow-sm hover:shadow-sm"
           >
            {loading ? <Spinner/> : "Login"} 
           </button>

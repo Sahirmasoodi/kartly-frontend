@@ -11,6 +11,7 @@ import {
 import SideDrawer from "../../components/SideDrawer";
 import Spinner from "../../components/Spinner";
 
+
 const Coupons = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -53,24 +54,24 @@ const Coupons = () => {
     <Layout>
       <div>
         {/* Header */}
-        <div className="flex justify-between mb-6">
-          <h2 className="text-3xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+        <div className="flex justify-between mb-8 page-heading">
+          <h2 className=" text-gradient">
             Coupon Management
           </h2>
 
           <button
-            className="px-5 py-2 bg-linear-to-r from-pink-500 to-purple-600 text-white rounded-xl shadow hover:opacity-90 transition"
+            className="px-5 py-2 bg-linear-to-r from-pink-600 to-violet-600 text-white rounded-xl shadow hover:opacity-90 transition"
             onClick={() => navigate("/add/coupon")}
           >
-          + Add Coupon
+            + Add Coupon
           </button>
         </div>
 
         {/* Table */}
         {loading ? (
-          <Spinner color="black"/>
+          <Spinner color="black" />
         ) : (
-          <div className="bg-white shadow rounded-lg overflow-hidden">
+          <div className="bg-white shadow rounded-xl overflow-hidden">
             {coupons.length === 0 ? (
               <div className="p-6 text-center text-gray-400">
                 No coupons found.
@@ -143,12 +144,12 @@ const Coupons = () => {
                           {coupon.isActive ? "Disable" : "Enable"}
                         </button>
 
-                        <button
+                        {/* <button
                           onClick={() => handleDelete(coupon._id)}
                           className="p-2"
                         >
                           <FaTrash />
-                        </button>
+                        </button> */}
                       </td>
                     </tr>
                   ))}
@@ -175,6 +176,11 @@ const Coupons = () => {
                   }}
                 />
               </div>
+
+              {/* <div>
+                <strong>Is Active:</strong>{" "}
+                {selectedCoupon.isActive ? "Yes" : "No"}
+              </div> */}
               <div>
                 <strong>Code:</strong> {selectedCoupon.code}
               </div>
@@ -208,6 +214,10 @@ const Coupons = () => {
 
               <div>
                 <strong>Used Count:</strong> {selectedCoupon.usedCount}
+              </div>
+              <div>
+                <strong>Limit per user:</strong>{" "}
+                {selectedCoupon.useLimitperUser}
               </div>
 
               <div>

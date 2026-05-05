@@ -13,13 +13,13 @@ const AddNewOrder = () => {
     <Layout>
       <div className="p-6 flex justify-center">
         <div className="w-full ">
-          <h2 className="text-2xl font-bold text-gray-700 mb-6">
+          <h2 className="text-2xl font-bold text-gray-700 mb-4">
             Create New Order
           </h2>
 
           <form
             onSubmit={handleSubmit(createOrder)}
-            className="bg-white p-6 rounded-lg shadow-md space-y-5"
+            className="bg-white p-6 rounded-xl shadow-sm space-y-5"
           >
             {/* User Info */}
             <div className="grid md:grid-cols-2 gap-4">

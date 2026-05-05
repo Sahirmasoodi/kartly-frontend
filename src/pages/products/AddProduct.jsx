@@ -99,13 +99,16 @@ const AddProducts = () => {
   return (
     <Layout>
       <div>
-        <h2 className="text-2xl font-bold mb-6 text-gray-700">
+      <div className="page-heading mb-8">
+        <h2 className="text-gradient w-80 ">
           Add New Product
         </h2>
 
+      </div>
+
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="border border-gray-300 p-6 rounded-lg space-y-5"
+          className="border border-gray-300 p-6 rounded-xl space-y-5"
         >
           <input {...register("name")} placeholder="Product Name" className="w-full border p-2 rounded" />
 
@@ -131,7 +134,7 @@ const AddProducts = () => {
 
           <div className="grid grid-cols-4 gap-4 mt-4">
             {images.map((img, index) => (
-              <div key={index} className="border rounded-lg p-2 relative bg-gray-50">
+              <div key={index} className="border rounded-xl p-2 relative bg-gray-50">
                 <img src={img.url} alt="" className="h-32 w-full object-cover rounded" />
                 <div className="flex justify-between mt-2">
                   <span>#{index}</span>
@@ -206,7 +209,7 @@ const AddProducts = () => {
             <label>Active Product</label>
           </div>
 
-          <button className="bg-linear-to-r from-pink-500 to-purple-500 text-white px-6 py-2 rounded">
+          <button className="bg-linear-to-r from-pink-600 to-violet-600 text-white px-6 py-2 rounded-xl">
             Save Product
           </button>
         </form>

@@ -19,7 +19,7 @@ const SideDrawer = ({
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full ${width} bg-white shadow-xl z-50 flex flex-col transition-transform duration-300`}
+        className={`fixed top-0 right-0 h-full ${width} bg-white shadow-sm z-50 flex flex-col transition-transform duration-300`}
       >
         {/* Header */}
         <div className="flex justify-between items-center p-5 border-b">

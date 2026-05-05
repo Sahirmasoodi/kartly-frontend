@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/duipcpitb/image/upload";
-const UPLOAD_PRESET = "sms-preset";
+const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/${
+  import.meta.env.VITE_CLOUD_NAME
+}/image/upload`;
+
+const UPLOAD_PRESET = import.meta.env.VITE_UPLOAD_PRESET;
 
 const UploadCard = ({
   label = "Upload Image",
@@ -35,9 +38,7 @@ const UploadCard = ({
     try {
       const res = await axios.post(CLOUDINARY_URL, formData, {
         onUploadProgress: (event) => {
-          const percent = Math.round(
-            (event.loaded * 100) / event.total
-          );
+          const percent = Math.round((event.loaded * 100) / event.total);
           setProgress(percent);
         },
       });
@@ -86,13 +87,11 @@ const UploadCard = ({
           <div className="flex flex-col items-center justify-center h-full space-y-3">
             <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
               <div
-                className="bg-linear-to-r from-pink-500 to-purple-600 h-2 transition-all"
+                className="bg-linear-to-r from-pink-600 to-violet-600 h-2 transition-all"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <p className="text-sm text-purple-600">
-              Uploading... {progress}%
-            </p>
+            <p className="text-sm text-purple-600">Uploading... {progress}%</p>
           </div>
         )}
 
@@ -101,7 +100,7 @@ const UploadCard = ({
             <img
               src={preview}
               alt="Preview"
-              className="h-full mx-auto rounded-lg object-cover"
+              className="h-full mx-auto rounded-xl object-cover"
             />
 
             <button

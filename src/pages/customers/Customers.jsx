@@ -41,9 +41,9 @@ const Customers = () => {
   return (
     <Layout>
       <div className="mx-auto space-y-8">
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 page-heading">
           <div>
-            <h2 className="text-3xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
+            <h2 className=" text-gradient">
               Customers
             </h2>
             <p className="text-gray-500 text-sm mt-1">
@@ -85,7 +85,7 @@ const Customers = () => {
         </div>
 
         {error && (
-          <div className="bg-red-100 text-red-600 p-4 rounded-lg">
+          <div className="bg-red-100 text-red-600 p-4 rounded-xl">
             {error}
           </div>
         )}
@@ -100,7 +100,7 @@ const Customers = () => {
               <div
                 key={customer._id}
                 onClick={() => handleOpenUser(customer)}
-                className="group bg-white border border-gray-100 rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                className="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-sm hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               >
                 <div className="flex items-center gap-4">
                   <div className="h-16 w-16 rounded-full bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center text-xl font-bold text-white shadow">

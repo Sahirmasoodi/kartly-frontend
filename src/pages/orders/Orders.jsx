@@ -71,11 +71,14 @@ const Orders = () => {
   return (
     <Layout>
       <div>
-        <h2 className="text-3xl font-bold bg-linear-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-10">
+      <div className="mb-8 page-heading">
+
+        <h2 className=" text-gradient w-80 ">
           Orders Management
         </h2>
+      </div>
 
-        <div className="bg-white shadow rounded-lg overflow-hidden">
+        <div className="bg-white shadow rounded-xl overflow-hidden">
           {loading ? (
             <div className="p-6 text-center">
               <Spinner color="black" />
@@ -140,7 +143,7 @@ const Orders = () => {
           >
             <div className="space-y-4 text-sm">
               <div className="border p-4 rounded bg-gray-50">
-                <h3 className="font-semibold text-purple-700 mb-3">
+                <h3 className="font-semibold text-purple-700 mb-4">
                   Admin Update Controls
                 </h3>
 

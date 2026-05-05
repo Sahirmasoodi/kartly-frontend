@@ -16,7 +16,7 @@ const EditCoupon = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
- const { popMessage } = usePopup();
+  const { popMessage } = usePopup();
   const coupon = state?.coupon;
 
   const {
@@ -36,8 +36,10 @@ const EditCoupon = () => {
       validFrom: "",
       validTo: "",
       usageLimit: 0,
+      useLimitperUser: 1,
       eligibleCategories: "",
       firstOrderOnly: false,
+      isActive: true,
     },
   });
 
@@ -55,18 +57,24 @@ const EditCoupon = () => {
         validFrom: formatDate(coupon.validFrom),
         validTo: formatDate(coupon.validTo),
         usageLimit: coupon.usageLimit ?? 0,
+        useLimitperUser: coupon.useLimitperUser ?? 1,
         eligibleCategories: coupon.eligibleCategories?.join(", ") || "",
-        firstOrderOnly: coupon.firstOrderOnly || false,
+        firstOrderOnly: coupon.firstOrderOnly ?? false,
+        isActive: coupon.isActive ?? true,
       });
     }
   }, [coupon, navigate, reset]);
 
   const onSubmit = async (data) => {
     try {
-      data.value = Number(data.value);
-      data.minCartValue = Number(data.minCartValue);
-      data.maxDiscount = Number(data.maxDiscount);
-      data.usageLimit = Number(data.usageLimit);
+      data.value = Number(data.value || 0);
+      data.minCartValue = Number(data.minCartValue || 0);
+      data.maxDiscount = Number(data.maxDiscount || 0);
+      data.usageLimit = Number(data.usageLimit || 0);
+      data.useLimitperUser = Number(data.useLimitperUser || 1);
+
+      data.validFrom = new Date(data.validFrom);
+      data.validTo = new Date(data.validTo);
 
       if (data.eligibleCategories) {
         data.eligibleCategories = data.eligibleCategories
@@ -80,12 +88,12 @@ const EditCoupon = () => {
         updateCoupon({
           id: coupon._id,
           data,
-        })
+        }),
       ).unwrap();
 
       navigate("/coupons");
     } catch (err) {
-       popMessage("something went wrong")
+      popMessage("Something went wrong");
     }
   };
 
@@ -94,13 +102,11 @@ const EditCoupon = () => {
   return (
     <Layout>
       <div className="mx-auto bg-white rounded">
-        <h2 className="text-2xl font-bold mb-6 text-purple-700">
-          Edit Coupon
-        </h2>
+        <h2 className="text-2xl font-bold mb-4 text-purple-700">Edit Coupon</h2>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-5 border border-gray-300 p-6 rounded-lg"
+          className="space-y-5 border border-gray-300 p-6 rounded-xl"
         >
           <input
             {...register("code", { required: true })}
@@ -108,10 +114,7 @@ const EditCoupon = () => {
             className="w-full border p-2 rounded"
           />
 
-          <select
-            {...register("type")}
-            className="w-full border p-2 rounded"
-          >
+          <select {...register("type")} className="w-full border p-2 rounded">
             <option value="percentage">Percentage</option>
             <option value="flat">Flat</option>
             <option value="freedelivery">Free Delivery</option>
@@ -180,6 +183,16 @@ const EditCoupon = () => {
             placeholder="Eligible Categories (comma separated)"
             className="w-full border p-2 rounded"
           />
+          <input
+            type="number"
+            {...register("useLimitperUser")}
+            placeholder="Usage Limit Per User"
+            className="w-full border p-2 rounded"
+          />
+          <label className="flex items-center gap-2">
+            <input type="checkbox" {...register("isActive")} />
+            Is Active
+          </label>
 
           <label className="flex items-center gap-2">
             <input type="checkbox" {...register("firstOrderOnly")} />
@@ -189,7 +202,7 @@ const EditCoupon = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="px-4 bg-linear-to-r from-pink-500 to-purple-600 text-white py-2 rounded disabled:opacity-50"
+            className="px-4 bg-linear-to-r from-pink-600 to-violet-600 text-white py-2 rounded disabled:opacity-50"
           >
             {isSubmitting ? "Updating..." : "Update Coupon"}
           </button>
